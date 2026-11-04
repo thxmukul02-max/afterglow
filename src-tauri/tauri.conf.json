@@ -1,0 +1,45 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "Afterglow",
+  "version": "1.1.0",
+  "identifier": "com.afterglow.player",
+  "build": { "frontendDist": "../src" },
+  "app": {
+    "withGlobalTauri": true,
+    "windows": [
+      {
+        "title": "Afterglow",
+        "width": 1180,
+        "height": 720,
+        "minWidth": 720,
+        "minHeight": 480,
+        "dragDropEnabled": false,
+        "additionalBrowserArgs": "--disable-features=msWebOOUI,msPdfOOUI,msSmartScreenProtection --autoplay-policy=no-user-gesture-required"
+      }
+    ],
+    "security": {
+      "csp": null,
+      "assetProtocol": { "enable": true, "scope": ["**"] }
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": ["nsis"],
+    "icon": ["icons/32x32.png", "icons/128x128.png", "icons/128x128@2x.png", "icons/icon.ico"],
+    "windows": { "nsis": { "installMode": "currentUser" } },
+    "fileAssociations": [
+      {
+        "ext": ["mp4", "m4v", "mkv", "webm", "mov"],
+        "name": "Afterglow Video",
+        "description": "Video file",
+        "role": "Viewer"
+      },
+      {
+        "ext": ["mp3", "m4a", "aac", "wav", "ogg", "opus", "flac"],
+        "name": "Afterglow Audio",
+        "description": "Audio file",
+        "role": "Viewer"
+      }
+    ]
+  }
+}
